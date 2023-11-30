@@ -1,0 +1,131 @@
+@import "/home/nxco/.cache/wal/colors-waybar.css";
+@import "/home/nxco/.cache/wal/waybar.css";
+
+* {
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 13px;
+}
+
+button {
+  border: none;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  transition: 0.3s;
+}
+
+window#waybar {
+  border-radius: 8px;
+  background-color: @tackground;
+  color: @foreground;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: @foreground;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -3px @foreground;
+}
+
+#workspaces button.focused {
+  background-color: #64727d;
+  box-shadow: inset 0 -3px @foreground;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #64727d;
+  border-bottom: 3px solid @foreground;
+}
+
+#clock,
+#pulseaudio,
+#backlight,
+#battery,
+#network,
+#mode,
+#idle_inhibitor {
+  padding: 0 8px;
+  color: @foreground;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+  margin-right: 0;
+}
+
+#clock {
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+#battery {}
+
+#battery.charging,
+#battery.plugged {
+  color: @color3;
+}
+
+@keyframes blink {
+  to {
+    background-color: @color1;
+    color: @background;
+  }
+}
+
+#battery.critical:not(.charging) {
+  animation: blink 0.7s infinite alternate;
+}
+
+#network button {
+  color: red;
+}
+
+#network.disconnected {
+  background-color: @color1;
+}
+
+#tray {
+  padding-right: 3px;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @color1;
+}
+
+#keyboard-state {
+  background: #97e1ad;
+  color: #000000;
+  padding: 0 0px;
+  margin: 0 5px;
+  min-width: 16px;
+}
+
+#keyboard-state>label {
+  padding: 0 5px;
+}
+
+#keyboard-state>label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}

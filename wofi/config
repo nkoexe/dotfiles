@@ -1,0 +1,8 @@
+mode=run
+height=713
+width=350
+location=1
+filter_rate=100
+dmenu-parse_action=true
+allow_images=true
+insensitive=true

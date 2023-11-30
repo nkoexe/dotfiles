@@ -1,0 +1,103 @@
+awesome: &awesome Font Awesome 5 Free:style=solid:pixelsize=16
+
+bar:
+  location: top
+  height: 24
+  spacing: 7
+  background: 000000ee
+  foreground: ffffffff
+  font: JetBrainsMono Nerd Font:pixelsize=14
+
+  border:
+    width: 0
+    margin: 0
+
+  left:
+    - script:
+        path: /home/nxco/.config/yambar/scripts/hypr.sh
+        content:
+          string: { text: "{test}" }
+
+
+  center:
+    - clock:
+        time-format: "%H·%M·%S"
+        content:
+          string: { text: "{time}" }
+
+  right:
+    - backlight:
+        name: amdgpu_bl0
+        content:
+          list:
+            items:
+              - ramp:
+                  tag: percent
+                  items:
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+                    - string: { text: " {percent}" }
+    - battery:
+        name: BAT0
+        poll-interval: 120
+        anchors:
+          discharging: &discharging
+            list:
+              items:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: { text: " {capacity}", foreground: ff6600ff }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+          charging: &charging
+            list:
+              items:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: { text: " {capacity}", foreground: ff6600ff }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+                      - string: { text: " {capacity}" }
+        content:
+          map:
+            conditions:
+              state == unknown:
+                <<: *discharging
+              state == discharging:
+                <<: *discharging
+              state == charging:
+                <<: *charging
+              state == full:
+                string: { text: " 100", foreground: 228800ff }
+
+    - network:
+        name: wlp1s0
+        content:
+          map:
+            right-margin: 20
+            conditions:
+              state == down: { string: { text:  } }
+              state == up: { string: { text:  } }
+            on-click: notify-send "si coglione sei connesso"
