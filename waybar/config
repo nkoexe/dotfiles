@@ -1,16 +1,20 @@
 {
-  "position": "top",
-  "width": 1352,
+  "position": "bottom",
+  "layer": "bottom",
+  // "width": 1352,
+  // "width": 950,
   "height": 22,
-  "margin-top": 0,
+  "mode": "dock",
+  "margin-bottom": 5,
+  "margin-right": 15,
+  "margin-left": 15,
   "modules-left": [
-    "keyboard-state",
-    "wlr/workspaces",
-    "hyprland/window"
-  ],
-  "modules-center": [
+    // "keyboard-state",
+    // "wlr/workspaces",
     "clock"
+    // "hyprland/window"
   ],
+  // "modules-center": [],
   "modules-right": [
     "tray",
     "pulseaudio",
@@ -27,13 +31,15 @@
     }
   },
   "wlr/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "on-click": "activate",
+    "all-outputs": false,
     "format": "{icon}",
     "format-icons": {
-      "default": "∘",
-      "active": "⬤"
+      // "1": "    ",
+      // "2": "   ",
+      // "3": " ",
+      "default": "◇",
+      // "active": "⬤"
+      "active": "◈"
     }
   },
   "clock": {
@@ -46,7 +52,7 @@
   },
   "pulseaudio": {
     "format": "{icon} {volume}",
-    "format-muted": "ﱝ",
+    "format-muted": "󰖁",
     "on-click": "pamixer -t",
     "scroll-step": 1,
     "format-icons": {
@@ -54,15 +60,15 @@
       "hands-free": "",
       "headset": "",
       "default": [
-        "",
-        "",
-        ""
+        "󰕿",
+        "󰖀",
+        "󰕾"
       ]
     }
   },
   "backlight": {
-    "on-scroll-up": "brightnessctl s 2+",
-    "on-scroll-down": "brightnessctl s 2-",
+    "on-scroll-up": "brightnessctl s 1-",
+    "on-scroll-down": "brightnessctl s 1+",
     "format": "{icon} {percent}",
     "format-icons": [
       "",
@@ -106,6 +112,8 @@
     "format-ethernet": " {ifname}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󰤮 ",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}"
+    "tooltip-format-wifi": "{essid}\n⚡ {signalStrength}%\n↓ {bandwidthDownBits}\n↑ {bandwidthUpBits}",
+    "on-click": "gandhi",
+    "on-right-click": "gandhilogout"
   }
 }
