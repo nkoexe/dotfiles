@@ -1,0 +1,13 @@
+*
+
+!.gitignore
+
+!hypr/hyprland.conf
+!kitty/kitty.conf
+!neofetch/config.conf
+!rofi/config.rasi
+
+!wal/*
+!walthemes/*
+
+!waybar/*
