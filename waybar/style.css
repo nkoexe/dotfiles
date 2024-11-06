@@ -2,8 +2,9 @@
 @import "/home/nxco/.cache/wal/waybar.css";
 
 * {
-  font-family: CaskaydiaCove Nerd Font;
+  font-family: "Space Mono";
   font-size: 13px;
+  font-weight: 600;
 }
 
 button,
@@ -21,8 +22,11 @@ window#waybar {
 }
 
 #clock,
+#window,
+#workspaces,
 .modules-right {
   background-color: @tackground;
+  padding: 0 5px;
   border-radius: 5px;
 }
 
@@ -31,16 +35,21 @@ window#waybar {
   padding: 0 5px;
   border-radius: 0;
   color: @foreground;
+  border-left: 1px solid @color8;
+}
+
+#workspaces button:first-child {
+  border-left: none;
 }
 
 #workspaces button label {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #workspaces button:hover,
 label:hover {
-  background-color: @color1;
+  background-color: @color4;
 }
 
 
@@ -51,20 +60,17 @@ label:hover {
 } */
 
 #workspaces button.active {
-  color: @color1;
+  color: @color2;
   /* box-shadow: inset 0 -3px @foreground; */
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  background-color: @color3;
 }
 
-/* #mode {
-  background-color: #64727d;
-  border-bottom: 3px solid @foreground;
-} */
-
 #clock,
+#window,
+#tray,
 #pulseaudio,
 #backlight,
 #battery,
@@ -92,6 +98,7 @@ label:hover {
 
 #clock {
   padding: 0 20px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: -1px;
 }
@@ -135,18 +142,6 @@ label:hover {
   background-color: @color1;
 }
 
-/* #keyboard-state {
-  background: #97e1ad;
-  color: #000000;
-  padding: 0 0px;
-  margin: 0 5px;
-  min-width: 16px;
+window#waybar.empty #window {
+  background-color: transparent;
 }
-
-#keyboard-state>label {
-  padding: 0 5px;
-}
-
-#keyboard-state>label.locked {
-  background: rgba(0, 0, 0, 0.2);
-} */
