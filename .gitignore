@@ -2,12 +2,13 @@
 
 !.gitignore
 
+!dunst/dunstrc
 !hypr/hyprland.conf
 !kitty/kitty.conf
 !neofetch/config.conf
 !rofi/config.rasi
 
-!wal/*
+!wal/templates/*
 !walthemes/*
 
 !waybar/*
