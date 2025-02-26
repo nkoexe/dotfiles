@@ -25,9 +25,16 @@ window#waybar {
 #window,
 #workspaces,
 .modules-right {
-  background-color: @tackground;
   padding: 0 5px;
-  border-radius: 5px;
+  border: 1px solid @color1;
+  background-color: @tackground;
+  border-radius: 8px;
+}
+
+#workspaces {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-width: 1 1 0 1;
 }
 
 #workspaces button {
@@ -44,6 +51,7 @@ window#waybar {
 
 #workspaces button label {
   margin: 0;
+  padding: 1px 1px 0 3px;
   font-size: 16px;
 }
 
@@ -101,10 +109,52 @@ label:hover {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: -1px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-width: 1 1 0 0;
 }
 
 #clock:hover {
   padding: 0 30px;
+}
+
+.modules-right {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-width: 1 0 0 1;
+}
+
+#pulseaudio-slider,
+#backlight-slider {
+  padding: 0;
+  min-width: 100px;
+}
+
+#pulseaudio-slider slider,
+#backlight-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  min-height: 2px;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: @color1;
+}
+
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  border: none;
+  border-radius: 5px;
+  background-color: @tackground;
 }
 
 #battery {}
@@ -129,9 +179,18 @@ label:hover {
   background-color: @color1;
 }
 
-#tray {
-  padding-right: 3px;
+#custom-pacman {
+  padding: 0 4px 0 7px;
 }
+
+#tray {
+  padding: 0;
+  /* padding-right: 3px; */
+}
+
+/* #tray button {
+  padding: 0 10px;
+} */
 
 #tray>.passive {
   -gtk-icon-effect: dim;

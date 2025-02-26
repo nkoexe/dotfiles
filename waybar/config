@@ -3,11 +3,12 @@
   "layer": "bottom",
   // "width": 1352,
   // "width": 950,
-  "height": 22,
+  // "height": 22,
+  "height": 24,
   "mode": "dock",
-  "margin-bottom": 5,
-  "margin-right": 15,
-  "margin-left": 15,
+  // "margin-bottom": 5,
+  // "margin-right": 15,
+  // "margin-left": 15,
   "modules-left": [
     // "keyboard-state",
     "clock",
@@ -18,19 +19,21 @@
   "modules-right": [
     "tray",
     "custom/pacman",
+    // "pulseaudio/slider",
+    // "backlight/slider"",
     "pulseaudio",
     "backlight",
     "battery",
     "network"
   ],
-  "keyboard-state": {
-    "capslock": true,
-    "format": "{icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-    }
-  },
+  // "keyboard-state": {
+  //   "capslock": true,
+  //   "format": "{icon}",
+  //   "format-icons": {
+  //     "locked": "",
+  //     "unlocked": ""
+  //   }
+  // },
   "hyprland/workspaces": {
     // "all-outputs": false,
     // "format": "{icon}",
@@ -48,15 +51,19 @@
       "title<.*youtube.*>": " ",
       "title<.*github.*>": " ",
       "class<google-chrome>": " ",
-      "class<google-chrome> title<.*DevTools.*>": "🛠️",
+      "class<google-chrome> title<.*DevTools.*>": " ",
       "kitty": " ",
-      "code": "󰨞 "
+      "code": "󰨞 ",
+      "class<files>": " ",
+      "obsidian": " ",
+      "spotify": " "
     }
   },
   "clock": {
     "format": "{:%H:%M:%S}",
     "interval": 1,
-    "tooltip-format": "<h1>{:%A %d}</h1>\n<tt>{calendar}</tt>"
+    "tooltip-format": "<h1>{:%A %d}</h1>\n<tt>{calendar}</tt>",
+    "on-click": "kitty tclock"
   },
   "hyprland/window": {
     "format": " {title}",
@@ -94,6 +101,12 @@
       ]
     }
   },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    //   "format-muted": "󰖁",
+  },
   "backlight": {
     "on-scroll-up": "brightnessctl s 1-",
     "on-scroll-down": "brightnessctl s 1+",
@@ -110,6 +123,12 @@
       "",
       ""
     ]
+  },
+  "backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "amdgpu_bl1"
   },
   "battery": {
     "states": {
