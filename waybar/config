@@ -3,8 +3,7 @@
   "layer": "bottom",
   // "width": 1352,
   // "width": 950,
-  // "height": 22,
-  "height": 24,
+  // "height": 26,
   "mode": "dock",
   // "margin-bottom": 5,
   // "margin-right": 15,
@@ -13,14 +12,14 @@
     // "keyboard-state",
     "clock",
     "hyprland/workspaces"
-    // "hyprland/window",
+    // "hyprland/window"
   ],
   // "modules-center": [],
   "modules-right": [
     "tray",
     "custom/pacman",
     // "pulseaudio/slider",
-    // "backlight/slider"",
+    // "backlight/slider"", 
     "pulseaudio",
     "backlight",
     "battery",
@@ -62,7 +61,7 @@
   "clock": {
     "format": "{:%H:%M:%S}",
     "interval": 1,
-    "tooltip-format": "<h1>{:%A %d}</h1>\n<tt>{calendar}</tt>",
+    "tooltip-format": "<tt>{:%A %d}</tt>\n<tt>{calendar}</tt>",
     "on-click": "kitty tclock"
   },
   "hyprland/window": {
@@ -75,7 +74,7 @@
     "format": "{icon}",
     "return-type": "json",
     "format-icons": {
-      "pending-updates": " ",
+      "pending-updates": " "
     },
     "exec-if": "which waybar-updates",
     "exec": "waybar-updates",
@@ -108,8 +107,8 @@
     //   "format-muted": "󰖁",
   },
   "backlight": {
-    "on-scroll-up": "brightnessctl s 1-",
-    "on-scroll-down": "brightnessctl s 1+",
+    "on-scroll-up": "brightnessctl s 1%-",
+    "on-scroll-down": "brightnessctl s +1%",
     "format": "{icon} {percent}",
     "format-icons": [
       "",

@@ -34,7 +34,7 @@ window#waybar {
 #workspaces {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-width: 1 1 0 1;
+  border-width: 1px 1px 0 1px;
 }
 
 #workspaces button {
@@ -42,7 +42,7 @@ window#waybar {
   padding: 0 5px;
   border-radius: 0;
   color: @foreground;
-  border-left: 1px solid @color8;
+  border-left: .5px solid @color8;
 }
 
 #workspaces button:first-child {
@@ -112,7 +112,7 @@ label:hover {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-width: 1 1 0 0;
+  border-width: 1px 1px 0 0;
 }
 
 #clock:hover {
@@ -123,7 +123,7 @@ label:hover {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
-  border-width: 1 0 0 1;
+  border-width: 1px 0 0 1px;
 }
 
 #pulseaudio-slider,
@@ -201,6 +201,6 @@ label:hover {
   background-color: @color1;
 }
 
-window#waybar.empty #window {
+window.empty {
   background-color: transparent;
 }
