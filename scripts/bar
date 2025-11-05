@@ -1,0 +1,19 @@
+#!/bin/bash
+
+bar="waybar"
+
+if [[ $bar == "waybar" ]];
+then
+  CONFIG_FILES="$HOME/.config/waybar/config $HOME/.config/waybar/style.css $HOME/.cache/wal/colors-waybar.css"
+elif [[ $bar == "yambar" ]];
+then
+  CONFIG_FILES="$HOME/.config/yambar/config.yml"
+fi
+
+trap "killall $bar" EXIT
+
+while true; do
+    $bar &
+    inotifywait -e modify $CONFIG_FILES
+    killall $bar
+done
