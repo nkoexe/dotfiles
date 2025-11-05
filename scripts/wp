@@ -1,0 +1,16 @@
+#!/bin/sh
+
+bgfile=$(find $HOME/Wallpapers/ -type f | shuf -n 1)
+# echo $bgfile
+
+swww img --transition-type grow --transition-pos top-right --transition-duration 1 --transition-step 1 --transition-fps 60 $bgfile &
+
+wal --backend colorz -i $bgfile -n -e -q $1
+
+# sh ~/.config/walthemes/generate_chromium.sh
+
+. "$HOME/.cache/wal/colors.sh"
+
+killall dunst
+
+dunst &
